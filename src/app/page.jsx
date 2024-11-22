@@ -112,7 +112,7 @@ export default function StickerChart() {
                                     }`}
                                 >
                                     {student.name === "Abrar" && (
-                                        <span>🔥</span>
+                                        <span>🥰</span>
                                     )}
                                     {student.name === "Zaynab" && (
                                         <span>🇵🇸</span>
@@ -120,7 +120,7 @@ export default function StickerChart() {
                                     {student.name === "Zoya" && <span>😏</span>}{" "}
                                     {student.name}{" "}
                                     {student.name === "Abrar" && (
-                                        <span>😍</span>
+                                        <span>🥰</span>
                                     )}
                                     {student.name === "Zaynab" && (
                                         <span>🇵🇸</span>
