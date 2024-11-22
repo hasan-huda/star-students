@@ -103,7 +103,11 @@ export default function StickerChart() {
                         {data.map((student) => (
                             <tr key={student._id} className="hover:bg-gray-800">
                                 <td
-                                    className={`p-4 border border-gray-700 font-semibold`}
+                                    className={`p-4 border border-gray-700 font-semibold ${
+                                        student.name === "Zoya"
+                                            ? "bg-gold-500 text-gray-900"
+                                            : ""
+                                    }`}
                                 >
                                     {student.name === "Abrar" && (
                                         <span>🥰</span>
