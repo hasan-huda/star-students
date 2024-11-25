@@ -76,11 +76,45 @@ export default function StickerChart() {
                 🚗 Br. Hasan Sticker Chart 🚗
             </h1>
             <h2 className="text-2xl font-bold mb-4 text-center">
-                🐓 Chicken of the Day: Timmy 🐓
+                🐓 Chicken of the Day: Moon 🐓
             </h2>
 
             {/* Admin Login or Add Date */}
-
+            {isAdmin ? (
+                <div className="flex items-center gap-4 mb-8">
+                    <input
+                        type="date"
+                        className="p-3 bg-gray-700 text-white rounded-md"
+                        value={newDate}
+                        onChange={(e) => setNewDate(e.target.value)}
+                    />
+                    <button
+                        onClick={handleAddDate}
+                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-md"
+                    >
+                        + Add Date
+                    </button>
+                </div>
+            ) : (
+                <div className="flex flex-col items-center gap-4 mb-8">
+                    <div className="flex items-center gap-2">
+                        <input
+                            type="password"
+                            placeholder="Enter Admin Password"
+                            className="p-3 bg-gray-700 text-white rounded-md"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <button
+                            onClick={handleLogin}
+                            className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-md"
+                        >
+                            Sign In
+                        </button>
+                    </div>
+                    {error && <p className="text-red-500 mt-2">{error}</p>}
+                </div>
+            )}
             {/* Sticker Chart Table */}
             <div className="overflow-x-auto w-full max-w-5xl mb-5">
                 <table className="table-auto w-full border-collapse border border-gray-700">
@@ -105,7 +139,7 @@ export default function StickerChart() {
                                 <td
                                     className={`p-4 border border-gray-700 font-semibold ${
                                         student.name === "Zoya"
-                                            ? "bg-gold-500 text-gray-900"
+                                            ? "bg-gold-500 text-gray-900 hover:bg-yellow-400"
                                             : ""
                                     }`}
                                 >
@@ -145,41 +179,6 @@ export default function StickerChart() {
                     </tbody>
                 </table>
             </div>
-            {isAdmin ? (
-                <div className="flex items-center gap-4 mb-8">
-                    <input
-                        type="date"
-                        className="p-3 bg-gray-700 text-white rounded-md"
-                        value={newDate}
-                        onChange={(e) => setNewDate(e.target.value)}
-                    />
-                    <button
-                        onClick={handleAddDate}
-                        className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-bold rounded-md"
-                    >
-                        + Add Date
-                    </button>
-                </div>
-            ) : (
-                <div className="flex flex-col items-center gap-4 mb-8">
-                    <div className="flex items-center gap-2">
-                        <input
-                            type="password"
-                            placeholder="Enter Admin Password"
-                            className="p-3 bg-gray-700 text-white rounded-md"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button
-                            onClick={handleLogin}
-                            className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-md"
-                        >
-                            Sign In
-                        </button>
-                    </div>
-                    {error && <p className="text-red-500 mt-2">{error}</p>}
-                </div>
-            )}
         </div>
     );
 }
