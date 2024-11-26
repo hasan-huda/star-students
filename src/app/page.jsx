@@ -59,7 +59,7 @@ export default function StickerChart() {
         await fetch("/api/students/add-date", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ date: newDate, defaultStar: 0 }), // Default star: 🙅‍♂️ (level 0)
+            body: JSON.stringify({ date: newDate, defaultStar: 1 }), // Default star: 🙅‍♂️ (level 0)
         });
 
         // Refresh the data to show the new date
